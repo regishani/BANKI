@@ -874,25 +874,36 @@ This is important in JavaScript, because it is a very natural fit for user inter
   - **Example:**
   - **Source:**
 - [ ] Explain callback in Node.js.
-  - **Explanation:**
+  - **Explanation:** Node.js, being an asynchronous platform, doesn’t wait around for things like file I/O to finish — Node.js uses callbacks. A callback is a function called at the completion of a given task; this prevents any blocking, and allows other code to be run in the meantime.
+
+Callbacks are the foundation of Node.js. Callbacks give us an interface with which to say, “and when you’re done doing that, do all this.” This allows us to have as many IO operations as our OS can handle happening at the same time. For example, in a web server with hundreds or thousands of pending requests with multiple blocking queries, performing the blocking queries asynchronously gives you the ability to be able to continue working and not just sit still and wait until the blocking operations come back.
+
   - **Use:**
   - **Example:**
   - **Source:**
 - [ ] What is callback hell in Node.js?
-  - **Explanation:**
+  - **Explanation:** Callback hell, also known as the pyramid of doom, is the result of intensively nested, unreadable, and unmanageable callbacks, which in turn makes the code harder to read and debug
+improper implementation of the asynchronous logic causes callback hell
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:**  https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions
 - [ ] How do you prevent/fix callback hell?
-  - **Explanation:**
+  - **Explanation:** 
   - **Use:**
   - **Example:**
   - **Source:**
 - [ ] Explain the role of REPL in Node.js.
-  - **Explanation:**
+  - **Explanation:** REPL stands for Read Eval Print Loop, and it represents a computer environment. It’s similar to a Windows console or Unix/Linux shell in which a command is entered. Then, the system responds with an output
+
+REPL performs the following desired tasks:
+    Read - Reads user's input, parses the input into
+    JavaScript data-structure and stores in memory
+    Eval - Takes and evaluates the data structure
+    Print - Prints the result
+    Loop - Loops the above command until user presses ctrl-e twice
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions
 - [ ] Name the types of API functions in Node.js.
   - **Explanation:**
   - **Use:**
@@ -924,65 +935,118 @@ This is important in JavaScript, because it is a very natural fit for user inter
   - **Example:**
   - **Source:**
 - [ ] What is Event-driven programming?
-  - **Explanation:**
+  - **Explanation:** Event-driven programming is building our application based on and respond to events. When an event occurs, like click or keypress, we are running a callback function which is registered to the element for that event.
+Event driven programming follows mainly a publish-subscribe pattern.
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is Event loop in Node.js work? And How does it work?
-  - **Explanation:**
+  - **Explanation:** The Event loop handles all async callbacks. Node.js (or JavaScript) is a single-threaded, event-driven language. This means that we can attach listeners to events, and when a said event fires, the listener executes the callback we provided.
+Whenever we are call setTimeout, http.get and fs.readFile, Node.js runs this operations and further continue to run other code without waiting for the output. When the operation is finished, it receives the output and runs our callback function.
+So all the callback functions are queued in an loop, and will run one-by-one when the response has been received.
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is the purpose of `module.exports` in Node.js?
-  - **Explanation:**
+  - **Explanation:** A module encapsulates related code into a single unit of code. This can be interpreted as moving all related functions into a file. Imagine that we created a file called greetings.js and it contains the following two functions:
+  module.exports = {
+      sayHelloInEnglish: function() {
+      return "HELLO":
+      }.
+      sayHelloInSpanish: function() f
+      return "Hola";
+      }
+    }
+    
+    In the above code, module.exports exposes two functions to the outer world. We can import them in another file as follow:
+    
+    var greetings = require("./greetings.js");
+    greetings.sayHelloInEnglish(); // Hello
+    greetings.sayHelloInspanish();//Hola
+
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is the difference between Asynchronous and Non-blocking?
-  - **Explanation:**
+  - **Explanation:** Asynchronous literally means not synchronous. We are making HTTP requests which are asynchronous, means we are not waiting for the server response. We continue with other block and respond to the server response when we received.
+The term Non-Blocking is widely used with IO. For example non-blocking read/write calls return with whatever they can do and expect caller to execute the call again. Read will wait until it has some data and put calling thread to sleep.
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is Tracing in Node.js?
-  - **Explanation:**
+  - **Explanation:** Tracing provides a mechanism to collect tracing information generated by V8, Node core and userspace code in a log file. Tracing can be enabled by passing the --trace-events-enabled flag when starting a Node.js application.
+
+The set of categories for which traces are recorded can be specified using the --trace-event-categories flag followed by a list of comma separated category names. By default the node and v8 categories are enabled.
+Running Node.js with tracing enabled will produce log files that can be opened in the chrome://tracing tab of Chrome.
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] How will you debug an application in Node.js?
   - **Explanation:**
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] Difference between `setImmediate()` and `setTimeout()`?
   - **Explanation:**
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is `process.nextTick()`?
   - **Explanation:**
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is package.json? What is it used for?
-  - **Explanation:**
+  - **Explanation:** This file holds various metadata information about the project. This file is used to give information to npm that allows it to identify the project as well as handle the project's dependencies.
+Some of the fields are: name, name, description, author and dependencies.
+When someone installs our project through npm, all the dependencies listed will be installed as well. Additionally, if someone runs npm install in the root directory of our project, it will install all the dependencies to ./node_modules directory.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is libuv?
-  - **Explanation:**
+  - **Explanation:** libuv is a multi-platform support library with a focus on asynchronous I/O. It was primarily developed for use by Node.js, but it’s also used by Luvit, Julia, pyuv, and others.
+When the node.js project began in 2009 as a JavaScript environment decoupled from the browser, it is using Google’s V8 and Marc Lehmann’s libev, node.js combined a model of I/O – evented – with a language that was well suited to the style of programming; due to the way it had been shaped by browsers. As node.js grew in popularity, it was important to make it work on Windows, but libev ran only on Unix. libuv was an abstraction around libev or IOCP depending on the platform, providing users an API based on libev. In the node-v0.9.0 version of libuv libev was removed.
+Some of the features of libuv are:
+  > Full-featured event loop backed by epoll, kqueue, IOCP, event ports.
+  > Asynchronous TCP and UDP sockets
+  > Asynchronous file and file system operations
+  > Child processes
+  > File system events
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What are some of the most popular modules of Node.js?
-  - **Explanation:**
+  - **Explanation:** There are many most popular, most starred or most downloaded modules in Node.js. Some of them are:
+express
+async
+browserify
+socket.io
+bower
+gulp
+grunt
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is `EventEmitter` in Node.js?
-  - **Explanation:**
-  - **Use:**
+  - **Explanation:** All objects that emit events are instances of the EventEmitter class. These objects expose an eventEmitter.on() function that allows one or more functions to be attached to named events emitted by the object.
+When the EventEmitter object emits an event, all of the functions attached to that specific event are called synchronously.
+  - **Use:** const events = require('events") ;
+              const eventEmitter = new events. EventEmitter();
+              let myEvent = function ringBell() f
+              console.log('Event is emitted');
+              7
+              eventEmitter.on('emitEvent"
+              , myEvent);
+              eventEmitter.emit('emitEvent'):
+
   - **Example:**
-  - **Source:**
+  - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 
 ### CS Theory 
 
