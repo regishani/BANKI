@@ -859,20 +859,32 @@ This is important in JavaScript, because it is a very natural fit for user inter
   - **Use:** It's best used for real time applications that aren't data intensive. For programs that require more data processing a multi-threaded language like Java is a better choice.
   - **Source:** https://kinsta.com/knowledgebase/what-is-node-js/
 - [ ] What are the features of Node.js?
-  - **Explanation:**
+  - **Explanation:** Node.js has grown quickly in the last few years. This is thanks to the vast list of features it provides:
+
+Easy—Node.js is quite easy to start with. It’s a go-to choice for web development beginners. With a lot of tutorials and a large community—getting started is very easy.
+Scalable—It provides vast scalability for applications. Node.js, being single-threaded, is capable of handling a huge number of simultaneous connections with high throughput.
+Speed—Non-blocking thread execution makes Node.js even faster and more efficient.
+Packages—A vast set of open-source Node.js packages is available that can simplify your work. There are more than one million packages in the NPM ecosystem today.
+Strong backend—Node.js is written in C and C++, which makes it speedy and adds features like networking support.
+Multi-platform—Cross-platform support allows you to create SaaS websites, desktop apps, and even mobile apps, all using Node.js.
+Maintainable—Node.js is an easy choice for developers since both the frontend and backend can be managed with JavaScript as a single language.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://kinsta.com/knowledgebase/what-is-node-js/
 - [ ] How do you update NPM to a new version in Node.js?
-  - **Explanation:**
+  - **Explanation:** Node.js can be updated from the official Node.js website as well as through the command line using Node Version Manager(nvm). nvm was originally developed for Linux systems, however nvm can be installed separately for Windows system by the following steps:
+
+        Go to this site
+        Install and unzip the nvm-setup.zip file
+        From cmd type nvm -v to ensure nvm is installed.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://www.geeksforgeeks.org/how-to-update-node-js-and-npm-to-next-version/
 - [ ] Why is Node.js Single-threaded?
-  - **Explanation:**
+  - **Explanation:** Node.js is single-threaded for async processing. By doing async processing on a single-thread under typical web loads, more performance and scalability can be achieved instead of the typical thread-based implementation.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions
 - [ ] Explain callback in Node.js.
   - **Explanation:** Node.js, being an asynchronous platform, doesn’t wait around for things like file I/O to finish — Node.js uses callbacks. A callback is a function called at the completion of a given task; this prevents any blocking, and allows other code to be run in the meantime.
 
@@ -888,7 +900,24 @@ improper implementation of the asynchronous logic causes callback hell
   - **Example:**
   - **Source:**  https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions
 - [ ] How do you prevent/fix callback hell?
-  - **Explanation:** 
+  - **Explanation:** Refactoring the functions to return promises and using async/await is usually the best option. Instead of supplying the functions with callbacks that cause deep nesting, they return a promise that can be awaited and will be resolved once the data has arrived, allowing the next line of code to be evaluated in a sync-like fashion.
+
+The above code can be restructured like so:
+
+async function asyncAwaitVersion() {
+  const a = await getData()
+  const b = await getMoreData(a)
+  const c = await getMoreData(b)
+  const d = await getMoreData(c)
+  const e = await getMoreData(d)
+  // ...
+}
+There are lots of ways to solve the issue of callback hells:
+
+Modularization: break callbacks into independent functions
+Use a control flow library, like async
+Use generators with Promises
+Use async/await (from v7 on)
   - **Use:**
   - **Example:**
   - **Source:**
@@ -905,35 +934,54 @@ REPL performs the following desired tasks:
   - **Example:**
   - **Source:** https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions
 - [ ] Name the types of API functions in Node.js.
-  - **Explanation:**
+  - **Explanation:** The two types of API functions in Node.js are:
+
+        Asynchronous, non-blocking functions
+        Synchronous, blocking functions
+
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://www.simplilearn.com/tutorials/nodejs-tutorial/nodejs-interview-questions
 - [ ] What are the functionalities of NPM in Node.js?
   - **Explanation:**
   - **Use:**
   - **Example:**
   - **Source:**
 - [ ] What is the difference between Node.js and Ajax?
-  - **Explanation:**
+  - **Explanation:** The difference between Node.js and Ajax is that, Ajax (short for Asynchronous Javascript and XML) is a client side technology, often used for updating the contents of the page without refreshing it. While,Node.js is Server Side Javascript, used for developing server software. Node.js does not execute in the browser but by the server.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://www.guru99.com/node-js-interview-questions.html
 - [ ] What are “streams” in Node.js? Explain the different types of streams present in Node.js.
-  - **Explanation:**
+  - **Explanation:** Streams are a set of data entities in Node.js. These can be considered similar to the working of strings and array objects. Streams are used for continuous read/write operations across a channel. But, if the channel is not available, then all of the data cannot be pushed to the memory at once. Hence, using streams will make it easy to process a large set of data in a continuous manner.
+Next up on this compilation of top Node.js interview questions for experienced, let’s check out the advanced category of questions.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://intellipaat.com/blog/interview-question/node-js-interview-questions/
 - [ ] Explain chaining in Node.js.
-  - **Explanation:**
+  - **Explanation:**  Chaining in Node.js can be achieved using the async npm module. In order to install the async module, we need to run the following script in our directory:
+  npm init
+  npm i async
+  
+  There are two most commonly used methods for chaining functions provided by the async module:
+
+parallel(tasks, callback): The tasks is a collection of functions that runs parallel in practice through I/O switching. If any function in the collection tasks returns an error, the callback function is fired. Once all the functions are completed, the data is passed to the callback function as an array. The callback function is optional.
+
+series(tasks, callback): Each function in tasks run only after the previous function is completed. If any of the functions throw an error, the subsequent functions are not executed and the callback is fired with an error value. On completion of tasks, the data is passed into the callback function as an array.
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://www.geeksforgeeks.org/what-is-chaining-in-node-js/
 - [ ] What are Globals in Node.js?
-  - **Explanation:**
+  - **Explanation:** Assert is used to explicitly write test cases to verify the working of a piece of code. The following code snippet denotes the usage of assert:
+var assert = require('assert');
+function add(x, y) {
+return x + y;
+}
+var result = add(3,5);
+assert( result === 8, 'three summed with five is eight');
   - **Use:**
   - **Example:**
-  - **Source:**
+  - **Source:** https://intellipaat.com/blog/interview-question/node-js-interview-questions/
 - [ ] What is Event-driven programming?
   - **Explanation:** Event-driven programming is building our application based on and respond to events. When an event occurs, like click or keypress, we are running a callback function which is registered to the element for that event.
 Event driven programming follows mainly a publish-subscribe pattern.
@@ -987,17 +1035,25 @@ Running Node.js with tracing enabled will produce log files that can be opened i
   - **Example:**
   - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] How will you debug an application in Node.js?
-  - **Explanation:**
+  - **Explanation:** Node.js includes a debugging utility called debugger. To enable it start the Node.js with the debug argument followed by the path to the script to debug.
+Inserting the statement debugger; into the source code of a script will enable a breakpoint at that position in the code:
+
   - **Use:**
   - **Example:**
   - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] Difference between `setImmediate()` and `setTimeout()`?
-  - **Explanation:**
+  - **Explanation:** setImmediate() and setTimeout() are similar, but behave in different ways depending on when they are called.
+setImmediate() is designed to execute a script once the current poll (event loop) phase completes.
+setTimeout() schedules a script to be run after a minimum threshold in ms has elapsed.
+The order in which the timers are executed will vary depending on the context in which they are called. If both are called from within the main module, then timing will be bound by the performance of the process.
+
   - **Use:**
   - **Example:**
   - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
 - [ ] What is `process.nextTick()`?
-  - **Explanation:**
+  - **Explanation:** setImmediate() and setTimeout() are based on the event loop. But process.nextTick() technically not part of the event loop. Instead, the nextTickQueue will be processed after the current operation completes, regardless of the current phase of the event loop.
+Thus, any time you call process.nextTick() in a given phase, all callbacks passed to process.nextTick() will be resolved before the event loop continues.
+
   - **Use:**
   - **Example:**
   - **Source:** https://vigowebs.medium.com/frequently-asked-node-js-interview-questions-and-answers-b74fa1f20678
